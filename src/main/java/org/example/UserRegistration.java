@@ -91,13 +91,13 @@ import java.util.regex.Pattern;
     }
 
     /**
-     UC-5 User need to follow pre-defined Password rules. Rule1– minimum 8 Characters
+     UC-6 Rule2– Should have atleast one upeercase
      */
 
     public static void checkValidPassword(String password){
 
         boolean isPassword;
-        String passwordRegex = "^([a-zA-Z0-9]*[\\-\\!\\@\\#\\$\\%\\^\\&\\*\\(\\)\\_\\+]*){8}$";
+        String passwordRegex = "^(?=.*[A-Z])([a-zA-Z0-9]*([@#$%^&-+=()])*).{8,}$";
         Pattern patternObject = Pattern.compile(passwordRegex);
         if (password == null) {
             isPassword = false;
