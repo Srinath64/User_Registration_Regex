@@ -91,13 +91,13 @@ import java.util.regex.Pattern;
     }
 
     /**
-     UC-6 Rule2– Should have atleast one upeercase
+     UC-7 Rule3– Should have atleast one nnumeric value
      */
 
     public static void checkValidPassword(String password){
 
         boolean isPassword;
-        String passwordRegex = "^(?=.*[A-Z])([a-zA-Z0-9]*([@#$%^&-+=()])*).{8,}$";
+        String passwordRegex = "^(?=.*[A-Z])(?=.*[0-9])([a-zA-Z0-9]*([@#$%^&-+=()])*).{8,}$";
         Pattern patternObject = Pattern.compile(passwordRegex);
         if (password == null) {
             isPassword = false;
