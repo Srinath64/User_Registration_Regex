@@ -48,6 +48,27 @@ import java.util.regex.Pattern;
             System.err.println(lastName + " is an Invalid Last Name");
     }
 
+    /**
+     UC-3 User need to enter a valid Email
+     */
+
+    public static void checkValidEmail(String email){
+
+        boolean isEmail;
+        String emailRegex = "^[a-zA-Z]+[a-zA-Z0-9]*[- . + _]?[a-zA-Z0-9]+[@]{1}[a-z0-9]+[.]{1}[a-z]+[.]?[a-z]+$";
+        Pattern patternObject = Pattern.compile(emailRegex);
+        if (email == null) {
+            isEmail = false;
+        }
+        Matcher matcherObject = patternObject.matcher(email);
+        isEmail =  matcherObject.matches();
+
+        if(isEmail)
+            System.out.println(email+" is a Valid Email address\n");
+        else
+            System.out.println(email+" is an Invalid Email address");
+    }
+
 
     public static void main(String[] args) {
 
@@ -62,6 +83,10 @@ import java.util.regex.Pattern;
         System.out.println("Enter Your Last Name");
         String lastName = scannerObject.next();
         checkValidLastName(lastName);
+
+        System.out.println("Enter Your Email Address");
+        String email = scannerObject.next();
+        checkValidEmail(email);
 
         scannerObject.close();
 
