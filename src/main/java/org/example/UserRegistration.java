@@ -69,6 +69,27 @@ import java.util.regex.Pattern;
             System.out.println(email+" is an Invalid Email address");
     }
 
+    /**
+     UC-4 User need to follow predefined mobile format
+     */
+
+    public static void checkValidMobileNumber(String mobileNumber){
+
+        boolean isMobileNumber;
+        String mobileNumberRegex = "[7-9][0-9]{9}";
+        Pattern patternObject = Pattern.compile(mobileNumberRegex);
+        if (mobileNumber == null) {
+            isMobileNumber = false;
+        }
+        Matcher matcherObject = patternObject.matcher(mobileNumber);
+        isMobileNumber =  matcherObject.matches();
+
+        if(isMobileNumber)
+            System.out.println(mobileNumber+" is a Valid  Mobile Number\n");
+        else
+            System.out.println(mobileNumber+" is an Invalid Mobile Number");
+    }
+
 
     public static void main(String[] args) {
 
@@ -87,6 +108,10 @@ import java.util.regex.Pattern;
         System.out.println("Enter Your Email Address");
         String email = scannerObject.next();
         checkValidEmail(email);
+
+        System.out.println("Enter Your Mobile Number");
+        String mobileNumber = scannerObject.next();
+        checkValidMobileNumber(mobileNumber);
 
         scannerObject.close();
 
