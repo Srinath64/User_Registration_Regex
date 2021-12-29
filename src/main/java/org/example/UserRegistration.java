@@ -76,7 +76,7 @@ import java.util.regex.Pattern;
     public static void checkValidMobileNumber(String mobileNumber){
 
         boolean isMobileNumber;
-        String mobileNumberRegex = "[7-9][0-9]{9}";
+        String mobileNumberRegex = "(91)?[7-9][0-9]{9}";
         Pattern patternObject = Pattern.compile(mobileNumberRegex);
         if (mobileNumber == null) {
             isMobileNumber = false;
