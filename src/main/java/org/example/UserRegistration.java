@@ -90,6 +90,26 @@ import java.util.regex.Pattern;
             System.out.println(mobileNumber+" is an Invalid Mobile Number");
     }
 
+    /**
+     UC-5 User need to follow pre-defined Password rules. Rule1– minimum 8 Characters
+     */
+
+    public static void checkValidPassword(String password){
+
+        boolean isPassword;
+        String passwordRegex = "^([a-zA-Z0-9]*[\\-\\!\\@\\#\\$\\%\\^\\&\\*\\(\\)\\_\\+]*){8}$";
+        Pattern patternObject = Pattern.compile(passwordRegex);
+        if (password == null) {
+            isPassword = false;
+        }
+        Matcher matcherObject = patternObject.matcher(password);
+        isPassword =  matcherObject.matches();
+
+        if(isPassword)
+            System.out.println(password+" is a Valid  Password\n");
+        else
+            System.out.println(password+" is an Invalid Password");
+    }
 
     public static void main(String[] args) {
 
@@ -112,6 +132,10 @@ import java.util.regex.Pattern;
         System.out.println("Enter Your Mobile Number");
         String mobileNumber = scannerObject.next();
         checkValidMobileNumber(mobileNumber);
+
+        System.out.println("Enter Your Password");
+        String password = scannerObject.next();
+        checkValidPassword(password);
 
         scannerObject.close();
 
